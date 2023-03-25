@@ -1,15 +1,21 @@
 <template>
-  <div class="container mt-5">
+  <div class="container mt-5 contenedor">
+    <link rel="stylesheet" href="https://bootswatch.com/5/vapor/bootstrap.min.css">
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
+      
     />
     <center>
       <header>
-        <h1>{{ titulo }}</h1>
+        <h1 class="titulo">{{ titulo }}</h1>
       </header>
+      <br>
+      <NuxtLogo></NuxtLogo>
+      <br>
+      <br>
 
       <div>
         <a-input
@@ -22,7 +28,9 @@
         <a-button type="primary" ghost @click="agregarTarea">agregar</a-button>
       </div>
       <hr />
-      <div class="mt-3" v-for="(item, index) of tarea" v-bind:key="index">
+      <hr>
+      
+        <div  class="mt-3" v-for="(item, index) of tarea" v-bind:key="index">
         <div
           class="forma"
           role="alert"
@@ -48,17 +56,20 @@
                 {{ index }} - {{ item.nombre }} - {{ item.estado }}
             </div> -->
       </div>
+      
+      
     </center>
   </div>
 </template>
 <script lang="ts">
 import Vue, { Data } from "vue";
+import NuxtLogo from '~/components/NuxtLogo.vue';
 import { Button } from "ant-design-vue";
 import { stringify } from "querystring";
 export default Vue.extend({
   data() {
     return {
-      titulo: "GYM",
+      titulo: "GYM - VUE",
       tarea: [] as any,
       nuevaTarea: "",
       estado: false,
@@ -97,11 +108,10 @@ export default Vue.extend({
 });
 </script>
 <style>
-.flex {
-  display: flex;
-}
+
 .forma {
-  width: 400px;
+  width: 700px;
+  
 }
 .tareas {
   background: #ffffff;
@@ -111,4 +121,19 @@ export default Vue.extend({
   border-radius: 7px;
   margin-top: 10px;
 }
+.h1{
+font-family: fantasy;
+}
+.titulo{
+  font-family: fantasy;
+  font-size: 500%;
+}
+hr{
+  background-color: purple;
+}
+.div{
+  border: 2px solid #525252;
+  background-color: #525252;
+}
+
 </style>

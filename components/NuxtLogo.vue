@@ -8,7 +8,7 @@
 .nuxt-logo {
   height: 180px;
   position: relative;
-    left: 42%;
+  
 }
 
 </style>
